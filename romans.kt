@@ -1,14 +1,25 @@
-import java.util.Scanner
+fun main() {
+    print("Enter a number between 1 and 10: ")
+    val input = readLine()!!.toInt()
 
-fun main(args: Array<String>) {
-    val scanner = Scanner(System.`in`)
-    print("Enter a number within the range of 1 through 10: ")
-    val number = scanner.nextInt()
+    var romanNumeral = ""
 
-    if (number < 1 || number > 10) {
-        println("Error: Number must be within the range of 1 through 10.")
+    when (input) {
+        1 -> romanNumeral = "I"
+        2 -> romanNumeral = "II"
+        3 -> romanNumeral = "III"
+        4 -> romanNumeral = "IV"
+        5 -> romanNumeral = "V"
+        6 -> romanNumeral = "VI"
+        7 -> romanNumeral = "VII"
+        8 -> romanNumeral = "VIII"
+        9 -> romanNumeral = "IX"
+        10 -> romanNumeral = "X"
+    }
+
+    if (romanNumeral != "") {
+        println("Roman numeral version: $romanNumeral")
     } else {
-        val romanNumerals = arrayOf("I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X")
-        println("The Roman numeral version of $number is ${romanNumerals[number - 1]}.")
+        println("Error: number must be between 1 and 10")
     }
 }
