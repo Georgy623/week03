@@ -1,20 +1,19 @@
-import java.util.Scanner
-
 fun main() {
-    val input = Scanner(System.`in`)
-    
-    print("Enter your weight in pounds: ")
-    val weight = input.nextDouble()
-    print("Enter your height in inches: ")
-    val height = input.nextDouble()
+    print("Enter your weight in kilograms: ")
+    val weight = readLine()!!.toDouble()
 
-    val bmi = weight * 703 / (height * height)
+    print("Enter your height in meters: ")
+    val height = readLine()!!.toDouble()
 
-    val status = when {
-        bmi < 18.5 -> "underweight"
-        bmi <= 25 -> "optimal weight"
-        else -> "overweight"
+    val bmi = weight / (height * height) // calculate BMI
+
+    println("Your BMI is: $bmi")
+
+    if (bmi < 18.5) {
+        println("You are underweight")
+    } else if (bmi < 25) {
+        println("You have optimal weight")
+    } else {
+        println("You are overweight")
     }
-
-    println("Your BMI is ${"%.1f".format(bmi)}, which is considered $status.")
 }
